@@ -25,7 +25,7 @@
         </ul>
         {% if user.is_authenticated %}
         <a class="btn btn-link" href="#">{{ user.username }}</a>
-        <a class="btn btn-link" href="{% url 'djangoapp:logout' %}">Logout</a> <!-- FIXME -->
+        <a class="btn btn-link" href="{% url 'djangoapp:logout' %}">Logout</a>
         {% else %}
         <form class="form-inline" action="{% url 'djangoapp:login' %}" method="post">
             {% csrf_token %}
