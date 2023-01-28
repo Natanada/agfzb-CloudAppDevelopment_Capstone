@@ -52,10 +52,12 @@ def registration_request(request):
     if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']
+        first_name = request.POST['first_name']
+        last_name = request.POST['last_name']
         try:
             User.objects.get(username=username)
         except:
-            user = User.objects.create_user(username=username, password=password)
+            user = User.objects.create_user(username=username, first_name=first_name, last_name=last_name, password=password)
             login(request, user)
             return redirect('djangoapp:index')
         context['message'] = "User already exists."
